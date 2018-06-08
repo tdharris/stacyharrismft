@@ -1,0 +1,32 @@
+{
+  "name": "stacyharrismft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tdharris/site-stacyharrismft.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tdharris/site-stacyharrismft/issues"
+  },
+  "homepage": "https://github.com/tdharris/site-stacyharrismft#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-sitemap-html": "^1.0.3"
+  },
+  "now": {
+    "env": {
+      "NODE_ENV": "production"
+    },
+    "aliases": [
+      "www.stacyharrismft.com",
+      "stacyharrismft.com"
+    ]
+  }
+}
