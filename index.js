@@ -57,17 +57,17 @@ router
     });
 
 // redirect `www` https://zeit.co/docs/guides/redirect
-// function redirect(req, res, next) {
-// 	// if the request doesn't come from stacyharrismft.com or from the deployment URL
-// 	if (req.hostname !== 'stacyharrismft.com' || req.hostname !== process.env.NOW_URL) {
-// 		// redirect to stacyharrismft.com keeping the pathname and querystring
-// 		return res.redirect(`https://stacyharrismft.com${req.originalUrl}`);
-// 	}
-// 	return next();
-// }
+function redirect(req, res, next) {
+    // if the request doesn't come from stacyharrismft.com or from the deployment URL
+    if (req.hostname !== 'localhost' && req.hostname !== 'stacyharrismft.com' && req.hostname !== process.env.NOW_URL) {
+      // redirect to stacyharrismft.com keeping the pathname and querystring
+      return res.redirect(301, 'https://stacyharrismft.com' + req.originalUrl);
+    }
+    return next(); // call the next middleware (or route)
+}
 
 app
-// .use(redirect)
+    .use(redirect)
     .use(express.static('public'))
     .use('/', router)
     .use('*', (req, res) => {

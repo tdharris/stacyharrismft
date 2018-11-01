@@ -20,5 +20,14 @@
   "dependencies": {
     "express": "^4.16.3",
     "sitemap": "^1.13.0"
+  },
+  "now": {
+    "env": {
+      "NODE_ENV": "production"
+    },
+    "alias": [
+      "www.stacyharrismft.com",
+      "stacyharrismft.com"
+    ]
   }
 }
