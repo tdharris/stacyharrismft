@@ -26,8 +26,8 @@
       "NODE_ENV": "production"
     },
     "alias": [
-      "www.stacyharrismft.com",
-      "stacyharrismft.com"
+      "stacyharrismft.com",
+      "www.stacyharrismft.com"
     ]
   }
 }

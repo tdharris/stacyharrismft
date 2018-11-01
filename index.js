@@ -5,6 +5,7 @@ var express = require('express'),
     app = express(),
     router = express.Router();
 
+const wwwRedirect = require("./www-redirect");
 var public = __dirname + '/public/';
 
 // generate sitemap
@@ -56,24 +57,20 @@ router
         res.sendFile(public + 'services.html');
     });
 
-// redirect `www` https://zeit.co/docs/guides/redirect
-function redirect(req, res, next) {
-    // if the request doesn't come from stacyharrismft.com or from the deployment URL
-    if (req.hostname !== 'localhost' && req.hostname !== 'stacyharrismft.com' && req.hostname !== process.env.NOW_URL) {
-      // redirect to stacyharrismft.com keeping the pathname and querystring
-      return res.redirect(301, 'https://stacyharrismft.com' + req.originalUrl);
-    }
-    return next(); // call the next middleware (or route)
-}
-
 app
-    .use(redirect)
-    .use(express.static('public'))
-    .use('/', router)
-    .use('*', (req, res) => {
-        res.sendFile(public + '404.html');
+    .use(wwwRedirect)
+    .use(express.static("public"))
+    .use("/", router)
+    .use("*", (req, res) => {
+    res.sendFile(public + "404.html");
     });
 
-var server = app.listen(process.env.PORT || 5000, () => {
+var server = app.listen(process.env.PORT || 5000, (err) => {
+    if (err) throw err
     console.log('Listening on port ' + server.address().port);
+});
+
+process.on('uncaughtException', function (err) {
+    console.error(err);
+    console.log("Node NOT Exiting...");
 });
