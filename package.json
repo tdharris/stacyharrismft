@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node index.js",
+    "deploy": "now"
   },
   "repository": {
     "type": "git",
@@ -18,16 +20,6 @@
   },
   "homepage": "https://github.com/tdharris/site-stacyharrismft#readme",
   "dependencies": {
-    "express": "^4.16.3",
     "sitemap": "^1.13.0"
-  },
-  "now": {
-    "env": {
-      "NODE_ENV": "production"
-    },
-    "alias": [
-      "stacyharrismft.com",
-      "www.stacyharrismft.com"
-    ]
   }
 }

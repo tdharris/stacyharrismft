@@ -1,0 +1,23 @@
+{
+    "version": 2,
+    "name": "site-stacyharrismft",
+    "alias": [
+        "stacyharrismft.com",
+        "www.stacyharrismft.com"
+    ],
+    "env": {
+      "NODE_ENV": "production"
+    },
+    "regions": ["sfo1"],
+    "routes": [
+        { "src": "/", "dest": "/index.html" },
+        { "src": "/index(.php|.html)?$", "dest": "/index.html" },
+        { "src": "/about_me(.php|.html)?$", "dest": "/about_me.html" },
+        { "src": "/contact(.php|.html)?$", "dest": "/contact.html" },
+        { "src": "/faq(.php|.html)?$", "dest": "/faq.html" },
+        { "src": "/intake_forms(.php|.html)?$", "dest": "/intake_forms.html" },
+        { "src": "/learning_center(.php|.html)?$", "dest": "/learning_center.html" },
+        { "src": "/rates(.php|.html)?$", "dest": "/rates.html" },
+        { "src": "/services(.php|.html)?$", "dest": "/services.html" }
+    ]
+}
